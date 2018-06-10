@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.manasi.dagger2_plus_common_retrofit.features.calendar.WeeksSlotsActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_main_gradient"
+    app:contentInsetEnd="0dp"
+    android:id="@+id/toolbar_main"
+    app:contentInsetLeft="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetStart="0dp">
+
+    <TextView
+        android:id="@+id/tv_toolbar_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:gravity="center"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/reset"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <!--        fontPath="fonts/sfprodisplay_medium.otf" -->
+
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        fontPath="fonts/sfprodisplay_semibold.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/text_Toolbar_Title"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_toolbar_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:padding="8dp"
+        fontPath="fonts/sfprodisplay_medium.otf"
+        android:text="@string/confirm"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+
+        android:layout_gravity="end"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/iv_toolbar_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+
+            android:src="@drawable/notification_icon_copy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_toolbar_notification_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_shape_green_circle_notification"
+
+            android:gravity="center"
+            android:padding="4dp"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/iv_toolbar_notification"
+            app:layout_constraintEnd_toEndOf="@+id/iv_toolbar_notification"
+            app:layout_constraintStart_toEndOf="@+id/iv_toolbar_notification"
+            app:layout_constraintTop_toTopOf="@+id/iv_toolbar_notification"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="11" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                fontPath="fonts/sfprodisplay_bold.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+
+                tools:text="Title" />
+        </LinearLayout>-->
+
+
+</android.support.v7.widget.Toolbar>

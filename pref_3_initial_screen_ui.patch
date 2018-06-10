@@ -1,0 +1,260 @@
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 9695eac040b632e571947fe90b8018645bf4f6d3)
++++ app/src/main/res/values/strings.xml	(revision )
+@@ -41,6 +41,10 @@
+     <string name="select_time">Select Time</string>
+     <string name="select_days">Select Days</string>
+     <string name="upcoming">UPCOMING</string>
++    <string name="hello">Hello</string>
++    <string name="pref_3_initial_as_part">As part of Rujuta’s guidance, you can avail 1 interaction per week, in person or on call.</string>
++    <string name="week_1">WEEK 1:</string>
++    <string name="pref_3_intial_lets_begin">Let’s begin with your first interaction with Rujuta.</string>
+ 
+     <!-- TODO: Remove or change this placeholder text -->
+     <string name="hello_blank_fragment">Hello blank fragment</string>
+Index: app/src/main/res/layout/item_dashboard.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/item_dashboard.xml	(revision 9695eac040b632e571947fe90b8018645bf4f6d3)
++++ app/src/main/res/layout/item_dashboard.xml	(revision )
+@@ -11,7 +11,7 @@
+         android:layout_height="10dp"
+         android:background="@drawable/bg_shape_green_circle"
+         app:layout_constraintBottom_toBottomOf="@+id/tv_month"
+-        android:layout_marginStart="8dp"
++        android:layout_marginStart="4dp"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="@id/tv_month" />
+ 
+@@ -19,10 +19,10 @@
+         android:id="@+id/tv_month"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        app:layout_constraintLeft_toLeftOf="@id/iv_dot"
+-        tools:layout_editor_absoluteY="8dp"
+         android:layout_marginLeft="16dp"
+-        android:layout_marginStart="16dp"
++        android:layout_marginTop="8dp"
++        app:layout_constraintLeft_toLeftOf="@id/iv_dot"
++        app:layout_constraintTop_toTopOf="parent"
+         tools:text="December 2017" />
+ 
+     <View
+@@ -35,6 +35,16 @@
+         app:layout_constraintRight_toRightOf="@id/iv_dot"
+         app:layout_constraintTop_toBottomOf="@id/iv_dot" />
+ 
++    <View
++        android:id="@+id/vw_dot_upper"
++        android:layout_width="1dp"
++        android:layout_height="0dp"
++        android:background="@color/yellow_dark"
++        app:layout_constraintBottom_toTopOf="@id/iv_dot"
++        app:layout_constraintLeft_toLeftOf="@id/iv_dot"
++        app:layout_constraintRight_toRightOf="@id/iv_dot"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <android.support.v7.widget.RecyclerView
+         android:id="@+id/rv_appointments"
+         android:layout_width="0dp"
+Index: app/src/main/res/layout/activity_pref_3_initial.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_pref_3_initial.xml	(revision )
++++ app/src/main/res/layout/activity_pref_3_initial.xml	(revision )
+@@ -0,0 +1,119 @@
++<?xml version="1.0" encoding="utf-8"?>
++<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    xmlns:tools="http://schemas.android.com/tools">
++
++    <View
++        android:layout_width="match_parent"
++        android:layout_height="200dp"
++        android:background="@color/yellow_light" />
++
++    <TextView
++        android:id="@+id/textView3"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginLeft="24dp"
++        android:layout_marginTop="16dp"
++        android:text="@string/hello"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/textView6"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="8dp"
++        android:layout_marginTop="16dp"
++        tools:text="Sonal"
++        app:layout_constraintStart_toEndOf="@+id/textView3"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/textView7"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="24dp"
++        android:layout_marginStart="24dp"
++        android:layout_marginTop="8dp"
++        android:text="@string/pref_3_initial_as_part"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textView3" />
++
++    <android.support.v7.widget.CardView
++        android:id="@+id/cardView"
++        android:layout_width="0dp"
++
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="16dp"
++        android:layout_marginStart="24dp"
++        android:layout_marginTop="24dp"
++        android:background="@color/white"
++        app:cardCornerRadius="4dp"
++        app:cardElevation="4dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textView7">
++
++        <android.support.constraint.ConstraintLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content">
++
++            <ImageView
++                android:id="@+id/imageView2"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_marginEnd="8dp"
++                android:layout_marginStart="8dp"
++                android:layout_marginTop="48dp"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent"
++                app:layout_constraintTop_toTopOf="parent"
++                app:srcCompat="@drawable/week_icon" />
++
++            <TextView
++                android:id="@+id/textView8"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_marginEnd="8dp"
++                android:layout_marginStart="8dp"
++                android:layout_marginTop="16dp"
++                android:text="@string/week_1"
++                android:textColor="@color/yellow_2"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent"
++                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
++
++            <TextView
++                android:id="@+id/textView9"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_marginTop="24dp"
++                android:text="@string/pref_3_intial_lets_begin"
++                app:layout_constraintLeft_toLeftOf="parent"
++                app:layout_constraintRight_toRightOf="parent"
++                app:layout_constraintTop_toBottomOf="@+id/textView8" />
++
++
++            <Button
++                android:id="@+id/btnLogin"
++                style="@style/ButtonStyle"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_marginBottom="32dp"
++                android:layout_marginEnd="8dp"
++                android:layout_marginStart="8dp"
++                android:layout_marginTop="24dp"
++                android:text="@string/proceed"
++                app:layout_constraintBottom_toBottomOf="parent"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent"
++                app:layout_constraintTop_toBottomOf="@+id/textView9" />
++
++        </android.support.constraint.ConstraintLayout>
++
++
++    </android.support.v7.widget.CardView>
++</android.support.constraint.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision 9695eac040b632e571947fe90b8018645bf4f6d3)
++++ app/src/main/res/values/colors.xml	(revision )
+@@ -17,6 +17,8 @@
+     <color name="light_grey_text">#949292</color>
+     <color name="grey_divider">#b3b3b3</color>
+     <color name="yellow_dark">#f3ae00</color>
++    <color name="yellow_2">#f7be4d</color>
++    <color name="yellow_light">#faefd6</color>
+ 
+     <color name="yellow">#fecf33</color>
+     <color name="light_orange">#fdbd39</color>
+Index: app/src/main/java/com/lrm/rd_scheduler_android/features/dashboard/DashboardAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/lrm/rd_scheduler_android/features/dashboard/DashboardAdapter.java	(revision 9695eac040b632e571947fe90b8018645bf4f6d3)
++++ app/src/main/java/com/lrm/rd_scheduler_android/features/dashboard/DashboardAdapter.java	(revision )
+@@ -53,6 +53,12 @@
+         holder.rvAppointments.setLayoutManager(new GridLayoutManager(context, 2));
+         holder.rvAppointments.setAdapter(new AppointmentsAdapter(holder.mItem.getAppointmentsModelList()));
+ 
++        if (position == 0) {
++            holder.vwDotUpper.setVisibility(View.GONE);
++        } else {
++            holder.vwDotUpper.setVisibility(View.VISIBLE);
++        }
++
+ 
+         holder.mView.setOnClickListener(new View.OnClickListener() {
+             @Override
+@@ -79,6 +85,8 @@
+         TextView tvMonth;
+         @BindView(R.id.vw_divider_circle)
+         View vwDividerCircle;
++        @BindView(R.id.vw_dot_upper)
++        View vwDotUpper;
+         @BindView(R.id.rv_appointments)
+         RecyclerView rvAppointments;
+         public DashboardModel mItem;
+Index: app/src/main/res/layout/activity_dashboard.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_dashboard.xml	(revision 9695eac040b632e571947fe90b8018645bf4f6d3)
++++ app/src/main/res/layout/activity_dashboard.xml	(revision )
+@@ -10,10 +10,10 @@
+         android:id="@+id/rv_appointments"
+         android:layout_width="0dp"
+         android:layout_height="0dp"
+-        android:layout_marginBottom="8dp"
+-        android:layout_marginEnd="8dp"
+-        android:layout_marginStart="8dp"
+-        android:layout_marginTop="8dp"
++        android:layout_marginBottom="0dp"
++        android:layout_marginEnd="0dp"
++        android:layout_marginStart="0dp"
++        android:layout_marginTop="0dp"
+ 
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"

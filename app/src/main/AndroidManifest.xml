@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.manasi.dagger2_plus_common_retrofit">
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CONNECTIVITY_CHANGE" />
+
+
+    <application
+        android:name="com.manasi.dagger2_plus_common_retrofit.MainApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.splash.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FullScreen" />
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.welcome.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.preferences.PreferencesActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="35a74e8e8f60fcb2279719e0ca5c9818beb4bdc5" />
+
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.plan.PlanActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.plan.Pref3_Initial_Activity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.dashboard.DashboardNavigationActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name="com.manasi.dagger2_plus_common_retrofit.features.login.SmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.calendar.WeeksSlotsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_weeks_calendar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.manasi.dagger2_plus_common_retrofit.features.notifications.NotificationsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:label="@string/notifications"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name="com.manasi.dagger2_plus_common_retrofit.custom.NetStateReceiver"
+            android:label="NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

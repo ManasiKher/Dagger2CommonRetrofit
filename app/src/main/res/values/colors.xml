@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff9126</color>
+    <color name="colorPrimaryDark">#f87c68</color>
+    <color name="colorAccent">#2dbb87</color>
+    <color name="mustardLight">#f7d456</color>
+    <color name="mustardDark">#f2be48</color>
+    <color name="greyishBrown">#4e4e4e</color>
+    <color name="greyishBrown_2">#cc4e4e4e</color>
+    <color name="greyishBrownLight">#aba9a9</color>
+    <color name="mangoLight">#ff9126</color>
+    <color name="mangoDark">#f87c68</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="greenish_teal">#2dbb87</color>
+    <color name="grey_f1">#f1f1f1</color>
+    <color name="light_grey_dialog">#f7f7f7</color>
+    <color name="light_grey_text">#949292</color>
+    <color name="grey_divider">#b3b3b3</color>
+    <color name="warm_grey">#999999</color>
+    <color name="yellow_dark">#f3ae00</color>
+    <color name="yellow_2">#f7be4d</color>
+    <color name="yellow_light">#faefd6</color>
+    <color name="profile_red">#f8977d</color>
+    <color name="yellow_3">#ecc126</color>
+    <color name="light_tan">#faefd6</color>
+
+    <color name="yellow">#fecf33</color>
+    <color name="light_orange">#fdbd39</color>
+    <color name="peach">#ee6723</color>
+    <color name="lrm_left">#D2622C</color>
+    <color name="lrm_right">#285E9B</color>
+
+    <color name="grey_ripple">#73aba9a9</color>
+    <color name="yellow_3_ripple">#4Decc126</color>
+    <color name="mangoLight_ripple">#4Dff9126</color>
+
+
+    <!--100% — FF
+95% — F2
+90% — E6
+85% — D9
+80% — CC
+75% — BF
+70% — B3
+65% — A6
+60% — 99
+55% — 8C
+50% — 80
+45% — 73
+40% — 66
+35% — 59
+30% — 4D
+25% — 40
+20% — 33
+15% — 26
+10% — 1A
+5% — 0D
+0% — 00-->
+
+
+</resources>

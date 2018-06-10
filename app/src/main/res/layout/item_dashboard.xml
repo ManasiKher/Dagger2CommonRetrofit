@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_dot"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/bg_shape_green_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_month"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_month" />
+
+    <TextView
+        android:id="@+id/tv_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@id/iv_dot"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        fontPath="fonts/sfprodisplay_light.otf"
+        tools:text="@string/text_december_2017" />
+
+    <View
+        android:id="@+id/vw_divider_circle"
+        android:layout_width="0.3dp"
+        android:layout_height="0dp"
+        android:background="@color/yellow_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/iv_dot"
+        app:layout_constraintRight_toRightOf="@id/iv_dot"
+        app:layout_constraintTop_toBottomOf="@id/iv_dot" />
+
+    <View
+        android:id="@+id/vw_dot_upper"
+        android:layout_width="0.3dp"
+        android:layout_height="0dp"
+        android:background="@color/yellow_dark"
+        app:layout_constraintBottom_toTopOf="@id/iv_dot"
+        app:layout_constraintLeft_toLeftOf="@id/iv_dot"
+        app:layout_constraintRight_toRightOf="@id/iv_dot"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_appointments"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/iv_dot"
+        app:layout_constraintTop_toBottomOf="@+id/tv_month"
+        tools:listitem="@layout/item_appointments" />
+
+</android.support.constraint.ConstraintLayout>

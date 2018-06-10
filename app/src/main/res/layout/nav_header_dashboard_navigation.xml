@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="290dp">
+
+    <View
+        android:id="@+id/vw_bg_image"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@drawable/profile_background_image"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_prof_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_prof_data"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/profile_initial_background" />
+
+
+            <TextView
+                android:id="@+id/tv_initial_of_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            fontPath="fonts/sfprodisplay_light.otf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            app:srcCompat="@drawable/profile_line" />
+
+        <TextView
+            android:id="@+id/tv_mail_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="8dp"
+            fontPath="fonts/sfprodisplay_medium.otf"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_mobile_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="8dp"
+            fontPath="fonts/sfprodisplay_medium.otf"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <LinearLayout
+        android:id="@+id/ll_months"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/bg_profile_red_border"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vw_bg_image"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toEndOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vw_bg_image">
+
+        <TextView
+            android:id="@+id/tv_month_count"
+            style="@style/Profile_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            style="@style/Profile_month_interaction_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_interactions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_profile_red_border"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vw_bg_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/vw_bg_image">
+
+        <TextView
+            android:id="@+id/tv_interactions_count"
+            style="@style/Profile_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            style="@style/Profile_month_interaction_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
