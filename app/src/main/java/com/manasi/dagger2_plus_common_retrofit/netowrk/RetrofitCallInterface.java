@@ -6,7 +6,7 @@ package com.manasi.dagger2_plus_common_retrofit.netowrk;
  */
 
 public interface RetrofitCallInterface<T> {
-    void onSuccess(String callName, ResponseModel response);
+    void onSuccess(String callName, T response);
 
     void onFailure(String callName, Throwable throwable);
 

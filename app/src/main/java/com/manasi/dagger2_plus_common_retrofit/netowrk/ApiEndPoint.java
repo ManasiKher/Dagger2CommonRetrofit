@@ -13,7 +13,7 @@ public class ApiEndPoint {
     public static final String LOGIN = "login";
 
 
-    public static final String GET_DASHBOARD = "book/getDashboard";
+    public static final String GET_DASHBOARD = "dashboard";
 
 
 }

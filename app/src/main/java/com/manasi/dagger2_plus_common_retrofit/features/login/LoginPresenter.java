@@ -44,19 +44,12 @@ public class LoginPresenter<V extends LoginContract.View> extends BasePresenter<
     public void generateOTP_API(String mobileNumber) {
         Log.d(TAG, "generateOTP_API() called with: mobileNumber = [" + mobileNumber + "]");
 
-
-       /* if (mobileNumber != "") {
-
-        }*/
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("contactNumber", mobileNumber);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-        //TODO - dont show success msg...
         ApiInterface apiInterface = getRCommonInstance().getAPIInterface(getMvpView(), ApiEndPoint.GENERATE_OTP, this, true, false);
         callAPI(apiInterface.generateOTP(CommonUtils.getRequestBody(jsonObject)));
 
@@ -120,7 +113,6 @@ public class LoginPresenter<V extends LoginContract.View> extends BasePresenter<
 
     @Override
     public boolean isMobileNumberValid(String mobileNumber) {
-        //TODO update this later...
         Log.d(TAG, "isMobileNumberValid() called with: mobileNumber = [" + mobileNumber + "]");
         if (mobileNumber.length() >= 10) {
             return true;
@@ -133,13 +125,12 @@ public class LoginPresenter<V extends LoginContract.View> extends BasePresenter<
     }
 
     @Override
-    public void onSuccess(String callName, ResponseModel response) {
+    public void onSuccess(String callName, Object response) {
         switch (callName) {
             case ApiEndPoint.LOGIN:
                getMvpView().getContext().startActivity(new Intent( getMvpView().getContext(), DashboardNavigationActivity.class));
                 break;
         }
-
     }
 
     @Override

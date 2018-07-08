@@ -34,7 +34,7 @@ public class SplashScreenPresenter<V extends SplashScreenContract.View> extends 
     
 
     @Override
-    public void onSuccess(String callName, ResponseModel response) {
+    public void onSuccess(String callName, Object response) {
         switch (callName) {
 
            

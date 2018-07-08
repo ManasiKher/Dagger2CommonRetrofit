@@ -25,8 +25,6 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
         // this.mCompositeDisposable = compositeDisposable;
     }
 
-
-
     @Override
     public void onAttach(V mvpView) {
         this.mMvpView = mvpView;

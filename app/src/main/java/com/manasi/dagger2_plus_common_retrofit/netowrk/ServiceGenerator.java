@@ -45,7 +45,6 @@ public class ServiceGenerator {
         if (okkhttpClientBuilder == null) {
             okkhttpClientBuilder = new OkHttpClient.Builder().connectTimeout(60, TimeUnit.SECONDS);
         }
-
         return okkhttpClientBuilder;
     }
 
@@ -53,10 +52,7 @@ public class ServiceGenerator {
     //this method is called only while loggin in...
     public static <S> S createService(Context context, Class<S> serviceClass, String username, String password) {
         Log.d(TAG, "createService: 2: auth>> " + username + ":" + password);
-
         //isLoginAPI = false;
-
-
         if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
             String accessToken = Credentials.basic(username, password);
             //isLoginAPI = true;
@@ -103,31 +99,21 @@ public class ServiceGenerator {
                     getOkHttpClient().addInterceptor(authInterceptor);
                     builder.client(getOkHttpClient().build());
                     retrofit = builder.build();
-
                 }
             } else {
                 //logout user.. ask him to login again...
                 Toast.makeText(context, "Access token is missing", Toast.LENGTH_SHORT).show();
             }
-
-
         } else {
             Toast.makeText(context, "No internet connection", Toast.LENGTH_SHORT).show();
         }
-
         if (retrofit == null) {
             builder.client(getOkHttpClient().build());
             retrofit = builder.build();
         }
-
         if (isLoginAPI) {
             authInterceptor = null;
         }
-
         return retrofit.create(serviceClass);
-
-
     }
-
-
 }

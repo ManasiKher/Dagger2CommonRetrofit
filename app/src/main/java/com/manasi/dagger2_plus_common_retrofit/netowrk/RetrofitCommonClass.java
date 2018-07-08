@@ -89,82 +89,42 @@ public class RetrofitCommonClass<T> {
 
 
 
-    public void initialiseCall(Call<ResponseModel> tCall) throws Exception {
+    public void initialiseCall(Call<T> tCall) throws Exception {
 
         if (NetworkUtils.isNetworkConnected(context)) {
             mvpView.showLoading();
 
-            tCall.enqueue(new Callback<ResponseModel>() {
+            tCall.enqueue(new Callback<T>() {
                 @Override
-                public void onResponse(@NonNull Call<ResponseModel> call, @NonNull Response<ResponseModel> response) {
+                public void onResponse(@NonNull Call<T> call, @NonNull Response<T> response) {
 
                     try {
-                        //it is true only if generic sts code is 200...
-                        if (isValidateGenericStsCode(response)) {
                             if (response.isSuccessful()) {
                                 if (response.body() != null) {
-
-
-                                    //if (response.body() instanceof ResponseModel) {
-                                    ResponseModel responseParentModel = response.body();
-
-                                    if (responseParentModel != null) {
-                                        // Toast.makeText(context, responseParentModel.getMessage(), Toast.LENGTH_SHORT).show();
-                                        if (responseParentModel.getStatus().equalsIgnoreCase(ResponseCodeUtils.SERVER_STATUS_SUCCESS)
-                                                && responseParentModel.getStatusCode() == 200) {
-
+                                    if (response.body() != null)
+                                    {
                                             if (isShowSuccessMsg) {
-                                                Toast.makeText(context, responseParentModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(context, responseParentModel.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
-                                            retrofitCallInterface.onSuccess(callName, responseParentModel);
-
-                                        } else {
-                                            if (responseParentModel.getStatusCode() != null) {
-                                                checkForServerInternalCodes(responseParentModel.getStatusCode(), responseParentModel.getMessage());
-                                            }
-                                            Toast.makeText(context, responseParentModel.getMessage(), Toast.LENGTH_SHORT).show();
-                                        }
+                                            retrofitCallInterface.onSuccess(callName, response.body());
                                     } else {
                                         Toast.makeText(context, "Unknown response", Toast.LENGTH_SHORT).show();
                                     }
-                                    // }
-
                                 } else {
                                     Toast.makeText(context, "Response body is null", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(context, "Response not successfull", Toast.LENGTH_SHORT).show();
                             }
-                        }
-
                     } catch (Exception e) {
                         e.printStackTrace();
                         Toast.makeText(context, "Server response error - " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
-
                     mvpView.hideLoading();
-
-                    /*if (isShowProgress) {
-                        if (rootView != null) {
-                            //Log.d(TAG, "onResponse: Hide progress...."+call.request().url());
-                            progressbarLoading.hideProgressDialog();
-                        } else {
-                            pdialog.hideProgressDialog();
-                        }
-                    }*/
-
                 }
 
                 @Override
-                public void onFailure(@NonNull Call<ResponseModel> call, @NonNull Throwable t) {
-                    /*if (isShowProgress) {
-                        if (rootView != null) {
-                            progressbarLoading.hideProgressDialog();
-                        } else {
-                            pdialog.hideProgressDialog();
-                        }
-                    }*/
-
+                public void onFailure(@NonNull Call<T> call, @NonNull Throwable t) {
                     mvpView.hideLoading();
                     retrofitCallInterface.onFailure(callName, t);
                     Log.e(TAG, "onFailure: Throwable " + t.toString());
@@ -174,13 +134,10 @@ public class RetrofitCommonClass<T> {
                         } else {
                             Toast.makeText(context, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
-
                         Log.e(TAG, "----------- onFailure LocMsg:----------- " + t.getLocalizedMessage());
                     } else {
                         Toast.makeText(context, "Error: " + "context.getString(R.string.err_unknown)", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
             });
 
@@ -189,8 +146,6 @@ public class RetrofitCommonClass<T> {
             retrofitCallInterface.noNetworkConnection();
         }
     }
-
-
 
     private void checkForServerInternalCodes(int statusCodeFromSercver, String msgFromServer) {
         Log.d(TAG, "checkForServerInternalCodes() called with: statusCodeFromSercver = [" + statusCodeFromSercver + "], msgFromServer = [" + msgFromServer + "]");
@@ -208,8 +163,6 @@ public class RetrofitCommonClass<T> {
                         context.getString(R.string.nw_err_no_token_msg),
                         context.getString(R.string.nw_err_no_token_positive_btn_txt),
                         "");*/
-
-
                 break;
             case ResponseCodeUtils.R_SERVER_FAILED_SERVER_CODE:
                 break;
