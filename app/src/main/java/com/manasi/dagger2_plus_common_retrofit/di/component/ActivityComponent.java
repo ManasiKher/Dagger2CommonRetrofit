@@ -19,7 +19,6 @@ public interface ActivityComponent {
 
     void inject(LoginActivity activity);
 
-
     void inject(LoginMbNumFragement mbNumFragement);
 
     void inject(LoginOTPFragement otpFragement);
